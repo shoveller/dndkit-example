@@ -33,7 +33,7 @@ export function SortableItem(props) {
 
   return (
     <div {...attributes} {...listeners} className="list-row" ref={ref} style={style}>
-      <span>{props.id}</span>
+      <span>{props.children}</span>
     </div>
   );
 }

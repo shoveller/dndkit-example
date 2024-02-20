@@ -30,8 +30,8 @@ const SortableListContext = ({items, setItems, children}) => {
 
         if (active.id !== over.id) {
             setItems((items) => {
-                const oldIndex = items.indexOf(active.id);
-                const newIndex = items.indexOf(over.id);
+                const oldIndex = items.map(item => item.id).indexOf(active.id);
+                const newIndex = items.map(item => item.id).indexOf(over.id);
 
                 return arrayMove(items, oldIndex, newIndex);
             });
@@ -52,12 +52,16 @@ const SortableListContext = ({items, setItems, children}) => {
 }
 
 export default function App() {
-    const [items, setItems] = useState(["1", "2", "3"]);
+    const [items, setItems] = useState([
+        {id: "1", value: "apple"},
+        {id: "2", value: "orange"},
+        {id: "3", value: "pizza"}
+    ]);
 
     return (
         <SortableListContext items={items} setItems={setItems}>
-            {items.map((id) => (
-                <SortableItem key={id} id={id}/>
+            {items.map((item) => (
+                <SortableItem key={item.id} id={item.id}>{item.value}</SortableItem>
             ))}
         </SortableListContext>
     );
