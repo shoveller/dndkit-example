@@ -1,0 +1,24 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.list-row {
+  border: solid 1px black;
+  background: white;
+  padding: 0.5em;
+  font-family: sans-serif;
+
+  display: flex;
+  align-items: center;
+}
+
+.list-row:not(:last-child) {
+  margin-bottom: 3px;
+}
+
+.list-row button {
+  cursor: pointer;
+  height: 2em;
+  margin-left: 0.5em;
+}
